@@ -25,7 +25,7 @@ mysqlConnection.connect(
     }
 );
 
-// configuring port for Express server
+// inicia a API escutando na porta 3000
 app.listen(port, () => console.log('Express server is running at port ' + port));
 
 

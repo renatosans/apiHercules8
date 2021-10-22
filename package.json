@@ -1,5 +1,6 @@
 {
   "name": "apihercules8",
+  "type": "module",
   "version": "1.0.0",
   "description": "REST API da Hecules8",
   "main": "index.js",
