@@ -1,0 +1,23 @@
+{
+  "name": "apihercules8",
+  "version": "1.0.0",
+  "description": "REST API da Hecules8",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renatosans/apiHercules8.git"
+  },
+  "author": "Renato Rodrigues Sanseverino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renatosans/apiHercules8/issues"
+  },
+  "homepage": "https://github.com/renatosans/apiHercules8#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.3.2"
+  }
+}
