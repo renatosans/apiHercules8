@@ -1,3 +1,4 @@
+
 import mysql from "mysql2";
 import express from "express";
 
@@ -5,7 +6,7 @@ import express from "express";
 var app = express();
 const port = 3000;
 
-
+// configura os parametros de conexão
 var mysqlConnection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -13,7 +14,7 @@ var mysqlConnection = mysql.createConnection({
     database: 'h8'
 });
 
-// initial connection to MySQL Database
+// conecta ao banco de dados
 mysqlConnection.connect(
     err => {
         if (!err) {
