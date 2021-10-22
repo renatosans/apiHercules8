@@ -26,8 +26,7 @@ mysqlConnection.connect(
 );
 
 // inicia a API escutando na porta 3000
-app.listen(port, () => console.log('Express server is running at port ' + port));
-
+app.listen(port, () => console.log('Express escutando chamadas na porta ' + port));
 
 
 // recupera o cadastro do jogador
