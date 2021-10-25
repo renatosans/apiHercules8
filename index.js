@@ -30,8 +30,8 @@ app.listen(port, () => console.log('Express escutando chamadas na porta ' + port
 
 
 // recupera o cadastro do jogador
-app.get('/recuperarJogador/:code', (req, res) => {
-    mysqlConnection.query('SELECT * FROM jogador WHERE id = ?', [req.params.code], (err, rows, fields) => {
+app.get('/recuperarJogador/:id', (req, res) => {
+    mysqlConnection.query('SELECT * FROM jogador WHERE id = ?', [req.params.id], (err, rows, fields) => {
         if (!err) {
             res.send(rows);
         } else {
