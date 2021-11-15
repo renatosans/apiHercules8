@@ -50,14 +50,3 @@ app.get('/listarJogadores', (req, res) => {
         }
     })
 });
-
-// lista todos os clubes
-app.get('/listarClubes', (req, res) => {
-    mysqlConnection.query('SELECT * FROM clube', (err, rows, fields) => {
-        if (!err) {
-            res.send(rows);
-        } else {
-            console.log("Error: " + JSON.stringify(err, undefined, 2));
-        }
-    })
-});
