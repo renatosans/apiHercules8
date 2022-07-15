@@ -1,6 +1,7 @@
 
-import mysql from "mysql2";
-import express from "express";
+import mysql from 'mysql2';
+import express from 'express';
+import pool from './config/connection'
 
 
 var app = express();
@@ -38,7 +39,7 @@ app.get('/recuperarJogador/:id', (req, res) => {
             console.log("Error: " + JSON.stringify(err, undefined, 2));
         }
     })
-});
+})
 
 // lista todos os jogadores
 app.get('/listarJogadores', (req, res) => {
@@ -49,4 +50,4 @@ app.get('/listarJogadores', (req, res) => {
             console.log("Error: " + JSON.stringify(err, undefined, 2));
         }
     })
-});
+})
