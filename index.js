@@ -7,24 +7,8 @@ import { PrismaClient } from '@prisma/client'
 var app = express();
 const port = 3000;
 
-// configura os parametros de conexão
-var mysqlConnection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'p@ssw0rd',
-    database: 'h8'
-});
+const prisma = new PrismaClient();
 
-// conecta ao banco de dados
-mysqlConnection.connect(
-    err => {
-        if (!err) {
-            console.log("DB connection succeeded!");
-        } else {
-            console.log("DB connection failed!\n Error: " + JSON.stringify(err, undefined, 2));
-        }
-    }
-);
 
 // inicia a API escutando na porta 3000
 app.listen(port, () => console.log('Express escutando chamadas na porta ' + port));
@@ -43,8 +27,6 @@ app.get('/recuperarJogador/:id', (req, res) => {
 
 // lista todos os jogadores
 app.get('/listarJogadores', (req, res) => {
-    const prisma = new PrismaClient();
-
     mysqlConnection.query('SELECT * FROM jogador', (err, rows, fields) => {
         if (!err) {
             res.send(rows);
