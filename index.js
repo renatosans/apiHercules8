@@ -26,7 +26,7 @@ app.get('/listarJogadores', (req, res) => {
 
 // lista todos os clubes
 app.get('/listarClubes', (req, res) => {
-    prisma.clube.findMany()
+    prisma.clube.findMany({ include: { jogadores: true } })
     .then((clubes) => res.send(clubes))
     .catch((error) => console.log("Error: " + error.message))
 })
