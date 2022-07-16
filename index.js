@@ -23,3 +23,10 @@ app.get('/listarJogadores', (req, res) => {
         .then((jogadores) => res.send(jogadores))
         .catch((error) => console.log("Error: " + error.message))
 })
+
+// lista todos os clubes
+app.get('/listarClubes', (req, res) => {
+    prisma.clube.findMany()
+    .then((clubes) => res.send(clubes))
+    .catch((error) => console.log("Error: " + error.message))
+})
