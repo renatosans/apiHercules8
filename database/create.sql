@@ -24,7 +24,7 @@ USE `h8` ;
 -- Table `h8`.`clube`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `h8`.`clube` (
-  `id` INT(11) NOT NULL,
+  `id` INT NOT NULL,
   `pais` VARCHAR(45) NOT NULL,
   `nome` VARCHAR(35) NOT NULL,
   `email` VARCHAR(35) NULL DEFAULT NULL,
@@ -40,7 +40,7 @@ DEFAULT CHARACTER SET = latin1;
 -- Table `h8`.`jogador`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `h8`.`jogador` (
-  `id` INT(11) NOT NULL,
+  `id` INT NOT NULL,
   `nome` VARCHAR(150) NOT NULL,
   `email` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`id`))
