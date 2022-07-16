@@ -27,11 +27,8 @@ app.get('/recuperarJogador/:id', (req, res) => {
 
 // lista todos os jogadores
 app.get('/listarJogadores', (req, res) => {
-    mysqlConnection.query('SELECT * FROM jogador', (err, rows, fields) => {
-        if (!err) {
-            res.send(rows);
-        } else {
-            console.log("Error: " + JSON.stringify(err, undefined, 2));
-        }
-    })
+    // prisma.jogador.findMany()
+    prisma.jogador.findUnique({ where: { id: 4 }, select: { nome: true, email: true }})
+        .then((jogadores) => res.send(jogadores))
+        .catch((error) => console.log("Error: " + JSON.stringify(error))  )
 })
