@@ -8,17 +8,22 @@ datasource db {
 }
 
 model clube {
-  id       Int     @id
-  pais     String  @db.VarChar(45)
-  nome     String  @db.VarChar(35)
-  email    String? @db.VarChar(35)
-  telefone String? @db.VarChar(15)
-  fax      String? @db.VarChar(15)
-  imagem   String? @db.VarChar(200)
+  id       Int       @id
+  pais     String    @db.VarChar(45)
+  nome     String    @db.VarChar(35)
+  email    String?   @db.VarChar(35)
+  telefone String?   @db.VarChar(15)
+  fax      String?   @db.VarChar(15)
+  imagem   String?   @db.VarChar(200)
+  jogador  jogador[]
 }
 
 model jogador {
-  id    Int    @id
-  nome  String @db.VarChar(150)
-  email String @db.VarChar(200)
+  id                   Int    @id
+  clube                Int?
+  nome                 String @db.VarChar(150)
+  email                String @db.VarChar(200)
+  clube_clubeTojogador clube? @relation(fields: [clube], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_jogador_clube")
+
+  @@index([clube], map: "fk_jogador_clube_idx")
 }
