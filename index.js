@@ -10,13 +10,6 @@ const prisma = new PrismaClient();
 // inicia a API escutando na porta 3000
 app.listen(port, () => console.log('Express escutando chamadas na porta ' + port));
 
-// recupera o cadastro do jogador
-app.get('/recuperarJogador/:id', (req, res) => {
-    prisma.jogador.findUnique({ where: { id: Number(req.params.id) }, select: { nome: true, email: true }})
-    .then((jogador) => res.send(jogador))
-    .catch((error) => console.log("Error: " + error.message))
-})
-
 // lista todos os jogadores
 app.get('/listarJogadores', (req, res) => {
     prisma.jogador.findMany()
@@ -24,9 +17,23 @@ app.get('/listarJogadores', (req, res) => {
         .catch((error) => console.log("Error: " + error.message))
 })
 
+// recupera o cadastro do jogador
+app.get('/recuperarJogador/:id', (req, res) => {
+    prisma.jogador.findUnique({ where: { id: Number(req.params.id) } })
+    .then((jogador) => res.send(jogador))
+    .catch((error) => console.log("Error: " + error.message))
+})
+
 // lista todos os clubes
 app.get('/listarClubes', (req, res) => {
-    prisma.clube.findMany({ include: { jogadores: true } })
+    prisma.clube.findMany()
     .then((clubes) => res.send(clubes))
+    .catch((error) => console.log("Error: " + error.message))
+})
+
+// recupera o cadastro do clube
+app.get('/recuperarClube/:id', (req, res) => {
+    prisma.clube.findUnique({ where: { id: Number(req.params.id) }, include: { jogadores: true } })
+    .then((clube) => res.send(clube))
     .catch((error) => console.log("Error: " + error.message))
 })
