@@ -6,8 +6,7 @@ const pool = createPool({
 	user: 'root',
 	password: 'p@ssw0rd',
 	port: 3306,
-	database: 'h8',
-	// ssl: {}
+	database: 'h8'
 })
 
 export { pool }

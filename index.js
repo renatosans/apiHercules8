@@ -13,7 +13,7 @@ app.listen(port, () => console.log('Express escutando chamadas na porta ' + port
 // recupera o cadastro do jogador
 app.get('/recuperarJogador/:id', (req, res) => {
     prisma.jogador.findUnique({ where: { id: Number(req.params.id) }, select: { nome: true, email: true }})
-    .then((jogadores) => res.send(jogadores))
+    .then((jogador) => res.send(jogador))
     .catch((error) => console.log("Error: " + error.message))
 })
 
