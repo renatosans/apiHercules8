@@ -1,7 +1,7 @@
 
 import mysql from 'mysql2';
 import express from 'express';
-import pool from './config/connection'
+import { PrismaClient } from '@prisma/client'
 
 
 var app = express();
@@ -43,6 +43,8 @@ app.get('/recuperarJogador/:id', (req, res) => {
 
 // lista todos os jogadores
 app.get('/listarJogadores', (req, res) => {
+    const prisma = new PrismaClient();
+
     mysqlConnection.query('SELECT * FROM jogador', (err, rows, fields) => {
         if (!err) {
             res.send(rows);
