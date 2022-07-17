@@ -4,8 +4,11 @@ import { PrismaClient } from '@prisma/client'
 
 const port = 3000;
 const app = express();
+const staticRoot = './Public';
 const prisma = new PrismaClient();
 
+
+app.use("/", express.static(staticRoot));
 
 // inicia a API escutando na porta 3000
 app.listen(port, () => console.log('Express escutando chamadas na porta ' + port));

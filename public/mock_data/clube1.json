@@ -1,0 +1,41 @@
+{
+    "id": 3,
+    "pais": "Brasil",
+    "nome": "Santos",
+    "email": "santos@terra.com.br",
+    "telefone": "997450022",
+    "fax": null,
+    "imagem": null,
+    "jogadores": [
+        {
+            "id": 1,
+            "clubeId": 3,
+            "nome": "Lionel Messi",
+            "email": "messi@barcelona.com"
+        },
+        {
+            "id": 2,
+            "clubeId": 3,
+            "nome": "Cristiano Ronaldo",
+            "email": "r7@realmadri.com"
+        },
+        {
+            "id": 3,
+            "clubeId": 3,
+            "nome": "Robert Lewandowski",
+            "email": "lewandowski@bayern.com"
+        },
+        {
+            "id": 4,
+            "clubeId": 3,
+            "nome": "Kylian Mbappé",
+            "email": "kylian@psg.com"
+        },
+        {
+            "id": 5,
+            "clubeId": 3,
+            "nome": "Neymar Junior",
+            "email": "neymar@psg.com"
+        }
+    ]
+}
