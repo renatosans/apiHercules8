@@ -21,7 +21,7 @@ model clube {
 model jogador {
   id      Int    @id
   clubeId Int
-  clube   clube  @relation("_JogadoresOnClube", fields: [clubeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  clube   clube  @relation("_JogadoresOnClube", fields: [clubeId], references: [id])
   nome    String @db.VarChar(150)
   email   String @db.VarChar(200)
 }
