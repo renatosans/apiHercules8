@@ -24,4 +24,5 @@ model jogador {
   clube   clube  @relation("_JogadoresOnClube", fields: [clubeId], references: [id])
   nome    String @db.VarChar(150)
   email   String @db.VarChar(200)
+  dataContratacao DateTime @default(now())
 }
