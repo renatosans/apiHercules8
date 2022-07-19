@@ -12,7 +12,7 @@ const __dirname = path.resolve(path.dirname(''));
 
 
 app.use("/", express.static(staticRoot));
-app.use("/", router({ directory: path.join(__dirname, "api"), additionalMethods: null }))
+// app.use("/", router({ directory: path.join(__dirname, "api"), additionalMethods: null }))
 
 // inicia a API escutando na porta 3000
 app.listen(port, () => console.log('Express escutando chamadas na porta ' + port));
