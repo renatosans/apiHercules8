@@ -22,7 +22,7 @@ export default async function handler(req, res) {
 			return postClube(req, res);
 		}
 		case "GET": {
-			return getClube(req, res);
+			return getClubes(req, res);
 		}
 	}
 }
@@ -31,7 +31,7 @@ const postClube = async (req, res) => {
     res.send('Clube salvo com sucesso');
 }
 
-const getClube = async (req, res) => {
+const getClubes = async (req, res) => {
     mysqlConnection.connect(
         err => {
             if (!err) {
