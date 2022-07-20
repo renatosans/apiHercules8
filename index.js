@@ -1,4 +1,4 @@
-import path from 'path';
+// import path from 'path';
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
 import { nextApi, nextRouter } from 'express-next-api';
@@ -8,8 +8,8 @@ const port = 3000;
 const app = express();
 const staticRoot = './Public';
 const prisma = new PrismaClient(); 
-const currentDir = path.resolve(path.dirname('')); 
-const apiDirectory = path.join(currentDir, "api");
+// const currentDir = path.resolve(path.dirname('')); 
+// const apiDirectory = path.join(currentDir, "api");
 
 app.use("/", express.static(staticRoot));
 app.use(nextApi({ base: '/api', directory: 'api', options: {caseSensitive: false} }))
