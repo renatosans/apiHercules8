@@ -1,4 +1,5 @@
+const mysql = require('mysql2');
 
-export default async function handler(req, res) {
+module.exports = (req, res) => {
     res.send('Not implemented yet.  id=' + req.query.id);
 }

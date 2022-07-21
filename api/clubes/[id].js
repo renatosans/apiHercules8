@@ -1,4 +1,4 @@
-import mysql from "mysql2";
+const mysql = require('mysql2');
 
 
 // dados para conexão com banco de dados serverless
@@ -16,7 +16,7 @@ var mysqlConnection = mysql.createConnection({
     ssl: {}
 })
 
-export default async function handler(req, res) {
+module.exports = (req, res) => {
 	switch (req.method) {
 		case "GET": {
 			return getClube(req, res);
