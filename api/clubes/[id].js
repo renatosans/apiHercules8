@@ -3,8 +3,8 @@ import mysql from "mysql2";
 
 // dados para conexão com banco de dados serverless
 const host = 'r0e93010lf0s.us-east-3.psdb.cloud';
-const username = Buffer.from('cndwNXR4dHZzNzY1', 'base64').toString('ascii');
-const password = Buffer.from('cHNjYWxlX3B3X19iUHJnOVFQMXphMWJvZXU2WlVTNFN1a3JaSEZlM25GWGtmek00eVl5bGc=', 'base64').toString('ascii');
+const username = Buffer.from('ZHNuNnN5d2I5NWQy', 'base64').toString('ascii');
+const password = Buffer.from('cHNjYWxlX3B3X0NmcjVaRUtZVDhDUnhmOUMzMmN0QzRVVGtqU05OYVozMURTM1ZraGh1bmc=', 'base64').toString('ascii');
 
 // configura os parametros de conexão
 var mysqlConnection = mysql.createConnection({
@@ -50,20 +50,14 @@ const getClube = async (req, res) => {
             console.log("Error: " + JSON.stringify(err, undefined, 2));
         }
     })
-};
+}
 
 const deleteClube = async (req, res) => {
-	try {
-		const { id } = req.query;
-		await pool.query("DELETE FROM clube WHERE id = ?", [id]);
-		res.status(204).json();
-	} catch (error) {
-		return res.status(500).json({
-			message: error.message,
-		});
-	}
-};
+    // TODO : delete
+    res.send('Registro excluido com sucesso');
+}
 
 const updateClube = async (req, res) => {
-    res.send('Clube atualizado com sucesso');
+    // TODO : update
+    res.send('Registro atualizado com sucesso');
 }
