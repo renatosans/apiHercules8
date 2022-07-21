@@ -3,8 +3,8 @@ import mysql from "mysql2";
 
 // dados para conexão com banco de dados serverless
 const host = 'r0e93010lf0s.us-east-3.psdb.cloud';
-const username = Buffer.from('cndwNXR4dHZzNzY1', 'base64').toString('ascii');
-const password = Buffer.from('cHNjYWxlX3B3X19iUHJnOVFQMXphMWJvZXU2WlVTNFN1a3JaSEZlM25GWGtmek00eVl5bGc=', 'base64').toString('ascii');
+const username = Buffer.from('ZHNuNnN5d2I5NWQy', 'base64').toString('ascii');
+const password = Buffer.from('cHNjYWxlX3B3X0NmcjVaRUtZVDhDUnhmOUMzMmN0QzRVVGtqU05OYVozMURTM1ZraGh1bmc=', 'base64').toString('ascii');
 
 // configura os parametros de conexão
 var mysqlConnection = mysql.createConnection({
@@ -28,6 +28,7 @@ export default async function handler(req, res) {
 }
 
 const postJogador = async (req, res) => {
+    // TODO: insert
     res.send('Jogador salvo com sucesso');
 }
 
