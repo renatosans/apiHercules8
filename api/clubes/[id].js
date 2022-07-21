@@ -32,8 +32,24 @@ export default async function handler(req, res) {
 
 const getClube = async (req, res) => {
 	const { id } = req.query;
-	const [result] = await pool.query("SELECT * FROM clube WHERE id = ?", [id]);
-	res.status(200).json(result[0]);
+
+    mysqlConnection.connect(
+        err => {
+            if (!err) {
+                console.log("DB connection succeeded!");
+            } else {
+                console.log("DB connection failed!\n Error: " + JSON.stringify(err, undefined, 2));
+            }
+        }
+    )
+
+    mysqlConnection.query("SELECT * FROM clube WHERE id = ?", [id], (err, rows, fields) => {
+        if (!err) {
+            res.send(rows);
+        } else {
+            console.log("Error: " + JSON.stringify(err, undefined, 2));
+        }
+    })
 };
 
 const deleteClube = async (req, res) => {
