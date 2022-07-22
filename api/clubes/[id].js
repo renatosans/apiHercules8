@@ -3,7 +3,7 @@ const prisma = require('../../config/db');
 
 module.exports = {
 	default: (req, res) => {
-		const { id } = req.query;
+		const { id } = req.params;
 
 		switch (req.method) {
 			case "GET": {
