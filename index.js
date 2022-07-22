@@ -1,18 +1,17 @@
 const path = require('path');
 const express = require('express');
-const { router } = require('express-file-routing');
-const { PrismaClient } = require('@prisma/client');
+const prisma = require('./config/db');
+const { createRouter } = require('express-file-routing');
 
 
 const port = 3000;
 const app = express();
 const staticRoot = './Public';
-const prisma = new PrismaClient();
 const currentDir = path.resolve(path.dirname('')); 
 const apiDirectory = path.join(currentDir, "api");
 
 app.use("/", express.static(staticRoot));
-app.use("/", router({ directory: apiDirectory, additionalMethods: null }))
+createRouter(app, { directory: apiDirectory, additionalMethods: null } )
 
 // inicia a API escutando na porta 3000
 app.listen(port, () => console.log('Express escutando chamadas na porta ' + port));
