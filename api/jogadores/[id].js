@@ -7,13 +7,13 @@ module.exports = {
 
 		switch (req.method) {
 			case "GET": {
-				res.send('Dados Jogador id=' + id)
+				res.send('Dados recuperados. Registro id=' + id)
 			}
 			case "DELETE": {
-				res.send('Jogador id=' + id + ' excluido no BD')
+				res.send('Registro id=' + id + ' excluido com sucesso')
 			}
 			case "PUT": {
-				res.send('Jogador id=' + id + ' atualizado no BD')
+				res.send('Registro id=' + id + ' atualizado com sucesso')
 			}
 		}
 	},
@@ -28,12 +28,12 @@ module.exports = {
 		const { id } = req.params;
 
 		// TODO : delete
-		res.send(`Jogador id=${id} excluido`)
+		res.send(`Registro id=${id} excluido`)
     },
     put: (req, res) => {
 		const { id } = req.params;
 
 		// TODO : update
-		res.send(`Jogador id=${id} atualizado`)
+		res.send(`Registro id=${id} atualizado`)
     }
 }
