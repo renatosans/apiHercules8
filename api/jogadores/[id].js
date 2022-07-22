@@ -1,34 +1,39 @@
 const prisma = require('../../config/db');
 
 
-module.exports = (req, res) => {
-	switch (req.method) {
-		case "GET": {
-			return getJogador(req, res);
-		}
-		case "DELETE": {
-			return deleteJogador(req, res);
-		}
-		case "PUT": {
-			return updateJogador(req, res);
-		}
-	}
-}
-
 module.exports = {
+	default: (req, res) => {
+		const { id } = req.query;
+
+		switch (req.method) {
+			case "GET": {
+				res.send('Dados Jogador id=' + id)
+			}
+			case "DELETE": {
+				res.send('Jogador id=' + id + ' excluido no BD')
+			}
+			case "PUT": {
+				res.send('Jogador id=' + id + ' atualizado no BD')
+			}
+		}
+	},
     get: (req, res) => { 
 		const { id } = req.params;
 
-		prisma.jogador.findUnique({ where: { id: Number(req.params.id) } })
+		prisma.jogador.findUnique({ where: { id: Number(id) } })
 		.then((jogador) => res.send(jogador))
 		.catch((error) => res.send("Error: " + error.message))	
     },
     del: (req, res) => {
+		const { id } = req.params;
+
 		// TODO : delete
-		res.send('Registro excluido com sucesso');
+		res.send(`Jogador id=${id} excluido`)
     },
     put: (req, res) => {
+		const { id } = req.params;
+
 		// TODO : update
-		res.send('Registro atualizado com sucesso');
-    },
+		res.send(`Jogador id=${id} atualizado`)
+    }
 }
