@@ -1,18 +1,17 @@
 const prisma = require('../../config/db');
 
 
-module.exports = (req, res) => {
-	switch (req.method) {
-		case "POST": {
-			return postJogador(req, res);
-		}
-		case "GET": {
-			return getJogadores(req, res);
-		}
-	}
-}
-
 module.exports = {
+	default: (req, res) => {
+		switch (req.method) {
+			case "POST": {
+				res.send('Jogador salvo com sucesso')
+			}
+			case "GET": {
+				res.send('Lista de jogadores')
+			}
+		}
+	},
     get: (req, res) => {
 		prisma.jogador.findMany()
         .then((jogadores) => res.send(jogadores))
@@ -20,6 +19,6 @@ module.exports = {
     },
     post: (req, res) => {
 		// TODO: insert
-		res.send('Jogador salvo com sucesso');
+		res.send('Jogador salvo no BD');
     }
 }

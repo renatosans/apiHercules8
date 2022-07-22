@@ -19,6 +19,6 @@ module.exports = {
     },
     post: (req, res) => {
 		// TODO: insert
-		res.send('Clube salvo com sucesso')
+		res.send('Clube salvo no BD')
     }
 }
