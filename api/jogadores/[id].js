@@ -3,7 +3,7 @@ const prisma = require('../../config/db');
 
 module.exports = {
 	default: (req, res) => {
-        res.send( JSON.stringify(req.query) );
+        res.send(`REQ. METHOD=${req.method} REQ. QUERY=${JSON.stringify(req.query)}`);
 
 		/*
 		switch (req.method) {
