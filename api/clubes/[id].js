@@ -3,8 +3,9 @@ const prisma = require('../../config/db');
 
 module.exports = {
 	default: (req, res) => {
-		const { id } = req.params;
+		res.send( JSON.stringify(req.query) );
 
+		/*
 		switch (req.method) {
 			case "GET": {
 				res.send('Dados recuperados. Registro id=' + id)
@@ -16,6 +17,7 @@ module.exports = {
 				res.send('Registro id=' + id + 'atualizado com sucesso')
 			}
 		}
+		*/
 	},
     get: (req, res) => { 
 		const { id } = req.params;
