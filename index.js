@@ -1,4 +1,3 @@
-const path = require('path');
 const express = require('express');
 const prisma = require('./config/db');
 // const { createRouter } = require('express-file-routing');
@@ -7,11 +6,10 @@ const { nextApi, nextRouter } = require('express-next-api');
 
 const port = 3000;
 const app = express();
-const staticRoot = './Public';
-// const currentDir = path.resolve(path.dirname(''));
-// const apiDirectory = path.join(currentDir, "api");
 
-app.use("/", express.static(staticRoot));
+app.use("/", express.static('./Public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
 // createRouter(app, { directory: apiDirectory, additionalMethods: null } )
 app.use(nextApi({ base: '/api', directory: 'api', options: {caseSensitive: false} }))
 
