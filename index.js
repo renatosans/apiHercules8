@@ -1,5 +1,4 @@
 const express = require('express');
-const prisma = require('./config/db');
 // const { createRouter } = require('express-file-routing');
 const { nextApi, nextRouter } = require('express-next-api');
 
