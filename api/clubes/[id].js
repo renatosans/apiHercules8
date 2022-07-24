@@ -1,6 +1,14 @@
 const prisma = require('../../config/db');
 
 
+function deleteClube(req, res) {
+	return null;
+}
+
+function updateClube(req, res) {
+	return null;
+}
+
 module.exports = {
 	default: (req, res) => {
 		res.send(`REQ. METHOD=${req.method} REQ. QUERY=${JSON.stringify(req.query)}`);
