@@ -2,7 +2,7 @@ const prisma = require('../../config/db');
 
 
 function getClube(req, res) {
-	const { id } = req.params;
+	const { id } = req.params || req.query;
 
 	prisma.clube.findUnique({ where: { id: Number(id) }, include: { jogadores: true } })
 	.then((clube) => res.send(clube))
@@ -10,7 +10,7 @@ function getClube(req, res) {
 }
 
 function deleteClube(req, res) {
-	const { id } = req.params;
+	const { id } = req.params || req.query;
 
 	prisma.clube.delete({ where: { id: Number(id) } })
 	.then((result) => res.send(result))
@@ -19,9 +19,7 @@ function deleteClube(req, res) {
 
 function updateClube(req, res) {
 	// Serverless Database does not suport foreign keys, bug detected
-
-	const { id } = req.params;
-    // const { pais, nome, email, telefone, fax, imagem } = req.body;
+	const { id } = req.params || req.query;
 
 	prisma.clube.update({ where: { id: Number(id) }, data: req.body })
 	.then((result) => res.send(result))
@@ -30,8 +28,6 @@ function updateClube(req, res) {
 
 module.exports = {
 	default: (req, res) => {
-		req.params.id = req.query.id;
-
 		switch (req.method) {
 			case "GET": return getClube(req, res)
 			case "DELETE": return deleteClube(req, res)
